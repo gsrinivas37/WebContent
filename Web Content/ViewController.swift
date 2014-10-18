@@ -13,6 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        var url = NSURL(string: "http://www.xilinx.com")
+        
+        var task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, response, error) -> Void in
+            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+        })
+        
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
